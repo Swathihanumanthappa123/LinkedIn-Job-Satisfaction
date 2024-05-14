@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import ApplicantForm from './components/ApplicantForm';
+import ApplicantData from './components/ApplicantData/ApplicantData';
 import Details from './components/pages/Details';
 import TableauEmbed from './components/pages/TableauEmbed';
 
@@ -19,6 +20,10 @@ const App = () => {
     setCurrentPage('tableau'); // Navigate to Tableau visualization page
   };
 
+  const handleApplicantDataClick = () => {
+    setCurrentPage('applicantData'); // Navigate to Applicant Data page
+  };
+
   return (
     <Container>
       <Navbar bg="primary" data-bs-theme="dark">
@@ -31,6 +36,7 @@ const App = () => {
       {currentPage === 'form' && <ApplicantForm onSubmit={handleFormSubmit} />}
       {currentPage === 'details' && <Details formData={formData} onNextClick={handleNextClick} />}
       {currentPage === 'tableau' && <TableauEmbed />}
+      {currentPage === 'applicantData' && <ApplicantData />}
     </Container>
   );
 };
