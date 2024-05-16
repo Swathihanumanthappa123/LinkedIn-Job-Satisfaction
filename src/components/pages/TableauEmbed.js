@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 
-const TableauEmbed = () => {
+const TableauEmbed = ({onBackClick}) => {
   useEffect(() => {
     const adjustVizSize = () => {
       const divElement = document.getElementById('viz1715111748399');
@@ -33,6 +34,8 @@ const TableauEmbed = () => {
   }, []);
 
   return (
+  <div>
+    <Button variant="light" onClick={onBackClick}>Back</Button>
     <div className='tableauPlaceholder' id='viz1715111748399' style={{ position: 'relative' }}>
       <noscript>
         <a href='#'>
@@ -59,6 +62,7 @@ const TableauEmbed = () => {
         <param name='language' value='en-US' />
         <param name='filter' value='publish=yes' />
       </object>
+    </div>
     </div>
   );
 };
