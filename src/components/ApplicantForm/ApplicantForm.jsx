@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Form, Button, ProgressBar } from 'react-bootstrap';
+import { Form, Button, ProgressBar, Row, Col } from 'react-bootstrap';
 
-const ApplicantForm = ({ onSubmit }) => {
+const ApplicantForm = ({ onSubmit, onConfirm }) => {
   const [formData, setFormData] = useState({
     name: '',
     skills: '',
@@ -19,6 +19,8 @@ const ApplicantForm = ({ onSubmit }) => {
     CareerGrowth: ''
   });
   const [step, setStep] = useState(1);
+  const [selectedApplicant, setSelectedApplicant] = useState('');
+  const [selectedCompany, setSelectedCompany] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,12 +34,67 @@ const ApplicantForm = ({ onSubmit }) => {
     onSubmit(formData);
   };
 
+  const handleConfirm = () => {
+    if (selectedApplicant && selectedCompany) {
+      onConfirm(selectedApplicant, selectedCompany);
+    } else {
+      console.log("Please select both an applicant and a company.");
+    }
+  };
+
   const progress = (step / 14) * 100;
 
   return (
     <Form onSubmit={handleSubmit}>
       <h2>Applicant Form</h2>
       <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+
+      <Row>
+        <Col>
+          <Form.Group controlId="formApplicant">
+            <Form.Label>Applicant</Form.Label>
+            <Form.Control
+              as="select"
+              value={selectedApplicant}
+              onChange={(e) => setSelectedApplicant(e.target.value)}
+            >
+              <option value="">Select Applicant</option>
+              <option value="Abner Aranda">Abner Aranda</option>
+              <option value="Patrick Fenton">Patrick Fenton</option>
+              <option value="Swathi Hanumanthappa">Swathi Hanumanthappa</option>
+              <option value="Timothy Chang">Timothy Chang</option>
+              <option value="Duy Le">Duy Le</option>
+            </Form.Control>
+          </Form.Group>
+        </Col>
+
+        <Col>
+          <Form.Group controlId="formCompany">
+            <Form.Label>Company</Form.Label>
+            <Form.Control
+              as="select"
+              value={selectedCompany}
+              onChange={(e) => setSelectedCompany(e.target.value)}
+            >
+              <option value="">Select Company</option>
+              <option value="Apple">Apple</option>
+              <option value="AstraZeneca">AstraZeneca</option>
+              <option value="Deloitte">Deloitte</option>
+              <option value="Google">Google</option>
+              <option value="IBM">IBM</option>
+              <option value="Morgan-Stanley">Morgan-Stanley</option>
+              <option value="Oracle">Oracle</option>
+              <option value="Pearson">Pearson</option>
+              <option value="Salesforce">Salesforce</option>
+              <option value="SAP">SAP</option>
+            </Form.Control>
+          </Form.Group>
+        </Col>
+      </Row>
+
+      <Button variant="primary" onClick={handleConfirm} className="mb-4">
+        Confirm
+      </Button>
 
       {step === 1 && (
         <Form.Group controlId="formName">
@@ -281,4 +338,3 @@ const ApplicantForm = ({ onSubmit }) => {
 };
 
 export default ApplicantForm;
-
