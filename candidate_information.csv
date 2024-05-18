@@ -1,0 +1,6 @@
+Name,Skills,Current Job,Current Company,Current Position,Desired Job Title,Location,Desired Salary,Desired Job Level,Desired Job Type (part-time/full-time),"Working Model (in-person, remote)",Work-Life Balance?,Comp & Benefits?,Career Opportunities?
+Timothy Chang,"EDU, ANLS, IT, ADM",Math Teacher,Kumon,Instructor,Data Analyst,"San Diego, CA","$75,000.00",Entry level,PART_TIME,"in-person, remote",4,2,3
+Abner Aranda,"ANLS, SCI, IT, RSCH",Unemployed,Unemployed,Unemployed,Data Analyst,"Cedar Rapids, IA","$65,000.00",Entry level,FULL_TIME,in-person,5,1,2
+Swathi Hanumanthappa,"STRA, PRJM, IT, FIN",Intern,"Radical AI, BCAMP",Internship,Artificial Intelligence Engineer,"San Francisco, CA","$100,000.00",Entry level,"PART_TIME, FULL_TIME","in-person, remote",5,5,5
+Duy Le,"IT, ANLS, MGMT, DSGN, ART",Software Engineer,"BCamp, Linguava",Mentor,Software Engineer,"Portland, OR","$100,000.00",Mid-Senior level,"PART_TIME, FULL_TIME","in-person, remote",2,5,5
+Patrick Fenton,"IT, FIN, BD, ENG, CNSL",Truck Driver/Author,Fenton Trucking,Truck Driver,Programmer,"Middletown, CT","$95,000.00",Entry level,FULL_TIME,remote,5,5,5
