@@ -325,7 +325,7 @@ const ApplicantForm = ({ onSubmit, onConfirm }) => {
                     <option value="Deloitte">Deloitte</option>
                     <option value="Google">Google</option>
                     <option value="IBM">IBM</option>
-                    <option value="Morgan-Stanley">Morgan-Stanley</option>
+                    <option value="Morgan Stanley">Morgan Stanley</option>
                     <option value="Oracle">Oracle</option>
                     <option value="Pearson">Pearson</option>
                     <option value="Salesforce">Salesforce</option>
