@@ -4,9 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
 const FlexChart = (result) => {
-
   result = result.result;
   // Parse each score as integer
   const overallMatch = result.OverallMatch;
@@ -14,48 +12,65 @@ const FlexChart = (result) => {
   const compensationScore = result.CompensationScore;
   const cultureScore = result.CultureScore;
 
-  console.log(result)
-  console.log(overallMatch)
+  console.log(result);
+  console.log(overallMatch);
 
+  const data = {
+    labels: ['Skills Match', 'Compensation Score', 'Culture Score'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [skillsMatch, compensationScore, cultureScore],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
 
-const data = {
-  labels: ['OverallMatch', 'SkillsMatch', 'CompensationScore', 'CultureScore'],
-  datasets: [
-    {
-      label: '# of Votes',
-      //data: [61.56, 46.67, 70, 66.67],
-      data: [overallMatch, skillsMatch, compensationScore, cultureScore],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(255, 206, 86, 0.6)',
-        'rgba(75, 192, 192, 0.6)',
-
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-
-      ],
-      borderWidth: 1,
+  const options = {
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+          },
+        },
+      },
     },
-  ],
-};
-
-const options = {
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-  },
-};
+    cutout: '60%',
+  };
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr ', gridTemplateRows: '1fr ', height: '100vh' }}>
-      <div style={{ gridColumn: '1', gridRow: '1', display: 'flex', justifyContent: 'top', alignItems: 'top' }}>
+    <div style={{ display: 'flex', justifyContent: 'flex-end', height: '100vh', paddingRight: '20px' }}>
+      <div style={{ width: '300px', height: '300px', position: 'relative' }}>
         <Doughnut data={data} options={options} />
+        <div
+          style={{
+            position: 'absolute',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            top: '58%',
+            left: '51%',
+            transform: 'translate(-50%, -50%)',
+            fontSize: '24px',
+            fontWeight: 'bold',
+          }}
+        >
+          {overallMatch}%
+        </div>
       </div>
     </div>
   );
