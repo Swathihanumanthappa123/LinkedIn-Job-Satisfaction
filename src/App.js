@@ -7,11 +7,13 @@ import ApplicantData from './components/ApplicantData/ApplicantData';
 import Details from './components/pages/Details';
 import TableauEmbed from './components/pages/TableauEmbed';
 import Tabs from './components/pages/Tabs';
-import results from './components/pages/result';
+import Result from './components/pages/result';
 
 const App = () => {
   const [formData, setFormData] = useState(null);
   const [currentPage, setCurrentPage] = useState('form'); // Initial page is the form
+  const [selectedApplicant, setSelectedApplicant] = useState('');
+  const [selectedCompany, setSelectedCompany] = useState('');
 
   const handleFormSubmit = (formData) => {
     setFormData(formData);
@@ -35,9 +37,10 @@ const App = () => {
   };
 
   const handleConfirm = (applicant, company) => {
-    console.log(`Applicant: ${applicant}, Company: ${company}`);
-    setCurrentPage('result'); // Navigate to Tabs page after confirmation
-  };
+      setSelectedApplicant(applicant);
+      setSelectedCompany(company);
+      setCurrentPage('result'); // Navigate to Result page after confirmation
+    };
 
   const handleHomeClick = () => {
     setCurrentPage('form'); // Navigate back to form page (home)
@@ -55,7 +58,8 @@ const App = () => {
       </Navbar>
       {currentPage === 'form' && <ApplicantForm onSubmit={handleFormSubmit} onConfirm={handleConfirm} />}
       {currentPage === 'details' && <Details formData={formData} onNextClick={handleNextClick} />}
-      {currentPage === 'result' && <Tabs onDashboardClick={handleDashboardClick} />}
+      {currentPage === 'result' && <Tabs onDashboardClick={handleDashboardClick} /> }
+      {currentPage === 'result' && <Result applicant={selectedApplicant} company={selectedCompany} />}
       {currentPage === 'tableau' && <TableauEmbed onBackClick={handleBackClick} />}
       {currentPage === 'applicantData' && <ApplicantData />}
     </Container>
