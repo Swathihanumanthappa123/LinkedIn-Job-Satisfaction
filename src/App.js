@@ -8,6 +8,10 @@ import Details from './components/pages/Details';
 import TableauEmbed from './components/pages/TableauEmbed';
 import Tabs from './components/pages/Tabs';
 import Result from './components/pages/result';
+import CareerCompassLogo from './components/Logo/CareerCompassLogo.webp';
+import Logo from './components/Logo/logowhitecompass.webp';
+
+import './App.css';
 
 const App = () => {
   const [formData, setFormData] = useState(null);
@@ -48,10 +52,10 @@ const App = () => {
 
   return (
     <Container>
-      <Navbar bg="primary" data-bs-theme="dark">
+      <Navbar bg="primary" className="navbar" data-bs-theme="dark">
         <Container>
           <Navbar.Brand onClick={handleHomeClick} style={{ cursor: 'pointer' }}>
-            <h1>Predict Job Satisfaction</h1>
+             <img src={CareerCompassLogo} alt="CareerCompassLogo" className="navbar-logo" />
           </Navbar.Brand>
           <Nav className="me-auto"></Nav>
         </Container>
@@ -63,6 +67,7 @@ const App = () => {
       {currentPage === 'tableau' && <TableauEmbed onBackClick={handleBackClick} />}
       {currentPage === 'applicantData' && <ApplicantData />}
     </Container>
+
   );
 };
 

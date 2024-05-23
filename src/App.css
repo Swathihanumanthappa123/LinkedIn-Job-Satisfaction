@@ -1,3 +1,14 @@
+.navbar {
+  height: 100px; /* Set a fixed height for the navbar */
+}
+
+.navbar-logo {
+  max-height: 100%; /* Logo will be constrained by the height of the navbar */
+  width: 800px; /* Allow the width to grow while maintaining aspect ratio */
+  margin-right:10px;
+}
+
+
 .App {
   text-align: center;
 }
