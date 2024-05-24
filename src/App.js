@@ -52,10 +52,12 @@ const App = () => {
 
   return (
     <Container>
-      <Navbar bg="primary" className="navbar" data-bs-theme="dark">
+      <Navbar bg="primary" data-bs-theme="dark">
         <Container>
           <Navbar.Brand onClick={handleHomeClick} style={{ cursor: 'pointer' }}>
-             <img src={CareerCompassLogo} alt="CareerCompassLogo" className="navbar-logo" />
+             <span className="logo-text">Career</span>
+             <img src={Logo} alt="CareerCompassLogo" className="navbar-logo" />
+             <span className="logo-text">Compass</span>
           </Navbar.Brand>
           <Nav className="me-auto"></Nav>
         </Container>

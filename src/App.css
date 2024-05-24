@@ -3,11 +3,16 @@
 }
 
 .navbar-logo {
-  max-height: 100%; /* Logo will be constrained by the height of the navbar */
-  width: 800px; /* Allow the width to grow while maintaining aspect ratio */
-  margin-right:10px;
+  width: 80px;
+  height: auto;
+  margin-left: 8px;
 }
 
+.logo-text{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 40px;
+  margin-left: 10px;
+}
 
 .App {
   text-align: center;
