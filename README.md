@@ -22,6 +22,6 @@ Our tool simplifies the process of making informed career choices:
 
 Our system is designed to guide individuals towards careers where they can be both successful and satisfied, benefiting all stakeholders in the job market.
 
-This is for a test push -PJ Fenton
-This is totally intended
+# **Check out Demo Video:**
 
+https://www.linkedin.com/posts/swathiah_datascience-machinelearning-jobsatisfaction-activity-7199830208550510593-Jn5K?utm_source=share&utm_medium=member_desktop
